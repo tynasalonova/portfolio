@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kristýna Salonová – Portfolio</title>
+  <link rel="stylesheet" href="https://use.typekit.net/dsb6iwx.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <nav>
+      <a class="nav-logo" href="#" id="nav-logo">Kristýna Salonová</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#prace">Práce</a>
+          <a href="#sluzby">Služby</a>
+          <a href="#o-mne">O mně</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+        <a class="nav-btn" id="nav-mail-btn" href="#">Napište mi</a>
+      </div>
+    </nav>
+    <img class="hero-bg" src="media/hero.jpg" alt="Kristýna Salonová">
+    <p class="hero-sub" id="hero-sub"></p>
+  </section>
+
+  <!-- WORKS -->
+  <section class="works" id="prace">
+    <img class="page-curl curl-works-1" src="media/krivka1.png" alt="">
+    <img class="page-curl curl-works-2" src="media/krivka2.png" alt="">
+    <img class="page-curl curl-works-3" src="media/krivka2.png" alt="">
+    <img class="page-curl curl-works-4" src="media/krivka1.png" alt="">
+    <h2 class="section-heading">Moje práce</h2>
+    <div class="works-grid" id="works-grid"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="o-mne">
+    <img class="page-curl curl-about-left" src="media/krivka1.png" alt="">
+    <img class="page-curl curl-about-right" src="media/krivka2.png" alt="">
+    <div class="about-box">
+      <img class="about-photo" src="media/o-mne.png" alt="O mně – Kristýna Salonová">
+      <div class="about-content">
+        <h2 class="about-title" id="about-title"></h2>
+        <div class="about-text" id="about-text"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="sluzby">
+    <img class="page-curl curl-services-1" src="media/krivka1.png" alt="">
+    <img class="page-curl curl-services-2" src="media/krivka2.png" alt="">
+    <h2 class="section-heading">Služby</h2>
+    <div class="services-grid" id="services-grid"></div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-wrap" id="kontakt">
+    <img class="page-curl curl-cta-left" src="media/krivka1.png" alt="">
+    <img class="page-curl curl-cta-right" src="media/krivka2.png" alt="">
+    <div class="cta">
+      <div class="cta-content">
+        <p class="cta-label" id="cta-label"></p>
+        <h2 class="cta-title" id="cta-title"></h2>
+        <p class="cta-tagline" id="cta-tagline"></p>
+        <a class="cta-btn" id="cta-btn" href="#">
+          Napsat zprávu
+          <img src="media/sipka-vinova.png" alt="" style="height:11px;">
+        </a>
+      </div>
+      <div class="cta-contact" id="cta-contact"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Kristýna Salonová</div>
+        <div class="footer-tagline">Content creator | Graphic designer</div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <div class="footer-col-title">Menu</div>
+          <a href="#prace">Práce</a>
+          <a href="#sluzby">Služby</a>
+          <a href="#o-mne">O mně</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+        <div class="footer-col" id="footer-contact-col">
+          <div class="footer-col-title">Kontakt</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-madewith">Made with 🖤</p>
+      <p class="footer-copyright">© 2026 Kristýna Salonová. Všechna práva vyhrazena.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- Umožňuje přihlašovací odkazy (pozvánka, obnovení hesla) pro /admin -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+        }
+      });
+    }
+  </script>
+</body>
+</html>

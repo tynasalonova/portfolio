@@ -1,0 +1,23 @@
+{
+  "name": "Kristýna Salonová",
+  "hero_subtitle": "content creator | graphic designer",
+  "about_title": "O mně",
+  "about_paragraphs": [
+    "Jsem designérka, která věří, že dobrý obsah musí být především srozumitelný. Než začnu tvořit, snažím se pochopit, co člověk na druhé straně obrazovky potřebuje slyšet a jak mu to říct tak, aby tomu rozuměl.",
+    "Design i obsah musí mít smysl. Žádné zbytečné efekty, jen jasné sdělení, které pomáhá. Od nápadu po hotový výstup si ráda projdu celý proces sama, ať jde o scénář, video, web nebo grafiku. Běžnou rutinu přenechávám AI, aby mi zbyl prostor na samotné nápady.",
+    "Mimo obrazovku mě nejčastěji najdeš u nějaké ruční práce. Šperky, šití, nebo cokoliv, co jde od prvního nápadu přes proces až k hotovému výsledku. Baví mě přesně to samé, co na designu: sledovat, jak se z myšlenky stává něco hmatatelného."
+  ],
+  "services": [
+    { "name": "Social media", "desc": "Správa profilů, tvorba obsahu, editace krátkých videí a reels. Budování konzistentní vizuální identity na sociálních sítích." },
+    { "name": "Webdesign", "desc": "Návrh a tvorba webových stránek s důrazem na estetiku, UX a funkčnost. Od wireframů po finální design." },
+    { "name": "Grafika", "desc": "Infografiky, vizuální prezentace, tiskové materiály a brandová grafika pro firmy i jednotlivce." }
+  ],
+  "cta_label": "Spolupráce",
+  "cta_title": "Každý projekt potřebuje svého kouzelníka",
+  "cta_tagline": "Pojďte, uvaříme něco magického.",
+  "email": "tynasalonova@gmail.com",
+  "phone": "+420 774 509 493",
+  "phone_href": "+420774509493",
+  "linkedin_url": "#",
+  "instagram_url": "#"
+}

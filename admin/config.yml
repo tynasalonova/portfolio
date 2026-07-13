@@ -1,0 +1,197 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "media"
+public_folder: "media"
+
+publish_mode: simple
+locale: "cs"
+
+collections:
+  - name: "projekty"
+    label: "Projekty"
+    files:
+      - name: "projects"
+        label: "Projekty (sekce Moje práce)"
+        file: "content/projects.json"
+        fields:
+          - label: "Seznam projektů"
+            name: "projects"
+            widget: "list"
+            label_singular: "Projekt"
+            summary: "{{fields.title}} — {{fields.category}}"
+            fields:
+              - label: "Identifikátor (slug)"
+                name: "slug"
+                widget: "string"
+                hint: "Jen malá písmena, bez diakritiky a mezer, spojuj pomlčkou. Např. novy-projekt. Musí být pro každý projekt jiný."
+              - { label: "Název projektu", name: "title", widget: "string" }
+              - label: "Kategorie / štítek"
+                name: "category"
+                widget: "string"
+                hint: "Např. Webdesign, Grafika, Social media, 3D."
+              - { label: "Použité nástroje", name: "tools", widget: "string", hint: "Např. Figma, Adobe CC" }
+              - { label: "Klient", name: "client", widget: "string", required: false }
+              - { label: "Podtitulek na kartě", name: "card_subtitle", widget: "string", required: false, hint: "Např. název webu nebo Instagram účtu." }
+              - { label: "Rok / období", name: "year", widget: "string" }
+              - { label: "Krátký popis na kartě (hlavní stránka)", name: "summary", widget: "text" }
+              - { label: "Titulní obrázek (na hlavní stránce)", name: "cover_image", widget: "image" }
+              - label: "Zobrazení obrázku na kartě"
+                name: "image_fit"
+                widget: "select"
+                default: "contain"
+                hint: "Celý obrázek = nic se neořízne, může zůstat prázdné místo. Vyplnit a oříznout = obrázek vyplní celou dlaždici, okraje se mohou oříznout."
+                options:
+                  - { label: "Celý obrázek (bez ořezu)", value: "contain" }
+                  - { label: "Vyplnit a oříznout", value: "cover" }
+              - label: "Přiblížení obrázku (%)"
+                name: "image_zoom"
+                widget: "number"
+                default: 100
+                hint: "100 = normální velikost. Vyšší číslo (např. 130) obrázek přiblíží/zvětší uvnitř dlaždice."
+              - label: "Vodorovná poloha obrázku"
+                name: "image_position_x"
+                widget: "select"
+                default: "center"
+                options:
+                  - { label: "Vlevo", value: "left" }
+                  - { label: "Na střed", value: "center" }
+                  - { label: "Vpravo", value: "right" }
+              - label: "Svislá poloha obrázku"
+                name: "image_position_y"
+                widget: "select"
+                default: "center"
+                options:
+                  - { label: "Nahoře", value: "top" }
+                  - { label: "Na střed", value: "center" }
+                  - { label: "Dole", value: "bottom" }
+              - label: "Obsah stránky projektu"
+                name: "blocks"
+                widget: "list"
+                label_singular: "Blok"
+                summary: "{{fields.type}}"
+                types:
+                  - label: "Nadpis sekce (velký, např. 'O projektu')"
+                    name: "heading"
+                    widget: object
+                    fields:
+                      - { label: "Typ", name: "type", widget: "hidden", default: "heading" }
+                      - { label: "Text", name: "text", widget: "string" }
+                  - label: "Podnadpis (menší, tučný)"
+                    name: "subheading"
+                    widget: object
+                    fields:
+                      - { label: "Typ", name: "type", widget: "hidden", default: "subheading" }
+                      - { label: "Text", name: "text", widget: "string" }
+                  - label: "Odstavec textu"
+                    name: "paragraph"
+                    widget: object
+                    fields:
+                      - { label: "Typ", name: "type", widget: "hidden", default: "paragraph" }
+                      - { label: "Text", name: "text", widget: "text" }
+                  - label: "Zvýrazněná věta (výsledek/číslo)"
+                    name: "highlight"
+                    widget: object
+                    fields:
+                      - { label: "Typ", name: "type", widget: "hidden", default: "highlight" }
+                      - { label: "Text", name: "text", widget: "text" }
+                  - label: "Jeden obrázek (vedle textu)"
+                    name: "image"
+                    widget: object
+                    fields:
+                      - { label: "Typ", name: "type", widget: "hidden", default: "image" }
+                      - { label: "Obrázek", name: "src", widget: "image" }
+                      - { label: "Popisek (alt)", name: "alt", widget: "string", required: false }
+                  - label: "Hlavní video (vedle textu)"
+                    name: "featured_video"
+                    widget: object
+                    fields:
+                      - { label: "Typ", name: "type", widget: "hidden", default: "featured_video" }
+                      - { label: "Video soubor", name: "video", widget: "file" }
+                      - { label: "Náhledový obrázek videa", name: "poster", widget: "image" }
+                      - { label: "Popisek", name: "caption", widget: "string", required: false }
+                  - label: "Řada videí vedle sebe"
+                    name: "video_row"
+                    widget: object
+                    fields:
+                      - { label: "Typ", name: "type", widget: "hidden", default: "video_row" }
+                      - label: "Videa"
+                        name: "items"
+                        widget: "list"
+                        fields:
+                          - { label: "Video soubor", name: "video", widget: "file" }
+                          - { label: "Náhledový obrázek", name: "poster", widget: "image" }
+                          - { label: "Popisek", name: "caption", widget: "string", required: false }
+                  - label: "Prohlížeč stránky/webu (okno se scrollováním)"
+                    name: "figma_viewer"
+                    widget: object
+                    fields:
+                      - { label: "Typ", name: "type", widget: "hidden", default: "figma_viewer" }
+                      - label: "Stránky/obrazovky"
+                        name: "pages"
+                        widget: "list"
+                        hint: "Jedna položka = jeden screenshot. Víc položek = přidají se šipky pro přepínání."
+                        fields:
+                          - { label: "Obrázek (screenshot)", name: "image", widget: "image" }
+                          - { label: "Popisek", name: "label", widget: "string", required: false }
+                  - label: "Galerie obrázků (klikací, na celou obrazovku)"
+                    name: "gallery_lightbox"
+                    widget: object
+                    fields:
+                      - { label: "Typ", name: "type", widget: "hidden", default: "gallery_lightbox" }
+                      - { label: "Nadpis sekce", name: "heading", widget: "string", required: false }
+                      - label: "Obrázky"
+                        name: "items"
+                        widget: "list"
+                        fields:
+                          - { label: "Obrázek", name: "src", widget: "image" }
+                          - { label: "Popisek (alt)", name: "alt", widget: "string", required: false }
+                  - label: "Řada náhledů s popiskem (klikací, otevře větší verzi)"
+                    name: "lightbox_row"
+                    widget: object
+                    fields:
+                      - { label: "Typ", name: "type", widget: "hidden", default: "lightbox_row" }
+                      - label: "Položky"
+                        name: "items"
+                        widget: "list"
+                        fields:
+                          - { label: "Náhled (menší obrázek)", name: "thumb", widget: "image" }
+                          - { label: "Zvětšenina (obrázek na celou obrazovku)", name: "full", widget: "image" }
+                          - { label: "Popisek", name: "caption", widget: "string", required: false }
+                  - label: "Tlačítko s odkazem"
+                    name: "link_button"
+                    widget: object
+                    fields:
+                      - { label: "Typ", name: "type", widget: "hidden", default: "link_button" }
+                      - { label: "Adresa (URL)", name: "url", widget: "string" }
+                      - { label: "Text tlačítka", name: "text", widget: "string" }
+
+  - name: "nastaveni"
+    label: "Nastavení webu"
+    files:
+      - name: "site"
+        label: "Texty a kontakty"
+        file: "content/site.json"
+        fields:
+          - { label: "Jméno / logo", name: "name", widget: "string" }
+          - { label: "Podtitulek pod jménem na úvodní stránce", name: "hero_subtitle", widget: "string" }
+          - { label: "Nadpis sekce O mně", name: "about_title", widget: "string" }
+          - label: "Text sekce O mně (odstavce)"
+            name: "about_paragraphs"
+            widget: "list"
+            field: { label: "Odstavec", name: "paragraph", widget: "text" }
+          - label: "Služby"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Název služby", name: "name", widget: "string" }
+              - { label: "Popis", name: "desc", widget: "text" }
+          - { label: "CTA – malý popisek nad nadpisem", name: "cta_label", widget: "string" }
+          - { label: "CTA – nadpis", name: "cta_title", widget: "string" }
+          - { label: "CTA – podtext pod nadpisem", name: "cta_tagline", widget: "string" }
+          - { label: "E-mail", name: "email", widget: "string" }
+          - { label: "Telefon (zobrazený)", name: "phone", widget: "string" }
+          - { label: "Telefon (pro odkaz tel:, bez mezer)", name: "phone_href", widget: "string" }
+          - { label: "LinkedIn URL", name: "linkedin_url", widget: "string", required: false }
+          - { label: "Instagram URL", name: "instagram_url", widget: "string", required: false }

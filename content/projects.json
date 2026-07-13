@@ -1,0 +1,318 @@
+{
+  "projects": [
+    {
+      "slug": "sprava-profilu",
+      "title": "Správa profilu",
+      "category": "Social media",
+      "tools": "CapCut, Adobe CC",
+      "client": "PPživě s. r. o.",
+      "card_subtitle": "@prvnipomoczive",
+      "year": "2024 – současnost",
+      "summary": "Scénáře, natáčení, střih a plánování edukačního obsahu (reels, carousely).",
+      "cover_image": "media/socialmedia-cover.png",
+      "image_fit": "contain",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "O projektu"
+        },
+        {
+          "type": "subheading",
+          "text": "Tvorba obsahu"
+        },
+        {
+          "type": "paragraph",
+          "text": "Kompletní obsahová tvorba pro PPŽivě. Od nápadu až po publikovaný příspěvek, napříč Instagramem, Facebookem a TikTokem."
+        },
+        {
+          "type": "subheading",
+          "text": "Plánování a scénáře"
+        },
+        {
+          "type": "paragraph",
+          "text": "Obsah plánuji měsíc dopředu – od brainstormingu témat až po konkrétní obsahový plán. Následuje psaní scénářů k reels, tvorba carouselů a popisky ke všem příspěvkům."
+        },
+        {
+          "type": "subheading",
+          "text": "Natáčení a střih"
+        },
+        {
+          "type": "paragraph",
+          "text": "Natáčení probíhá podle předem připraveného scénáře. Po natočení následuje střih, práce se zvukem a barevnými korekcemi, titulky a text v obraze."
+        },
+        {
+          "type": "subheading",
+          "text": "Publikace a správa"
+        },
+        {
+          "type": "paragraph",
+          "text": "Součástí práce je i plánování publikace tak, aby obsah vycházel v pravidelném rytmu, komunikace s komunitou přes komentáře a zprávy, sledování statistik a vyhodnocování, co funguje, a přizpůsobování formátů podle výkonu."
+        },
+        {
+          "type": "highlight",
+          "text": "Díky důslednému sledování dat a přizpůsobování strategie vyrostl účet organicky z necelých 4 000 na 22 800+ sledujících, a jedno z videí dosáhlo přes 1,2 milionu zhlédnutí bez placené propagace."
+        },
+        {
+          "type": "featured_video",
+          "video": "media/video-lhostejnost.mp4",
+          "poster": "media/video-lhostejnost-poster.png",
+          "caption": "Lhostejnost"
+        },
+        {
+          "type": "video_row",
+          "items": [
+            {
+              "video": "media/video-helma.mp4",
+              "poster": "media/video-helma-poster.png",
+              "caption": "Helma"
+            },
+            {
+              "video": "media/video-tamponada.mp4",
+              "poster": "media/video-tamponada-poster.png",
+              "caption": "Tamponáda"
+            },
+            {
+              "video": "media/video-duseni.mp4",
+              "poster": "media/video-duseni-poster.png",
+              "caption": "Dušení nad 1 rok"
+            }
+          ]
+        }
+      ],
+      "image_zoom": 100,
+      "image_position_x": "center",
+      "image_position_y": "center"
+    },
+    {
+      "slug": "prvnipomoc-web",
+      "title": "Tvorba webu",
+      "category": "Webdesign",
+      "tools": "Figma",
+      "client": "PPživě s. r. o.",
+      "card_subtitle": "prvnipomoczive.cz",
+      "year": "2025/2026",
+      "summary": "Grafický návrh a tvorba webových stránek – landing pages a podstránky.",
+      "cover_image": "media/prvnipomoc-cover.png",
+      "image_fit": "contain",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "O projektu"
+        },
+        {
+          "type": "subheading",
+          "text": "Web"
+        },
+        {
+          "type": "paragraph",
+          "text": "Kompletní grafický návrh webových stránek ve Figmě, od prvotní myšlenky po hotový vizuál připravený k naprogramování."
+        },
+        {
+          "type": "subheading",
+          "text": "Návrh a design"
+        },
+        {
+          "type": "paragraph",
+          "text": "Práce zahrnovala vymyšlení celkové struktury stránky – rozvržení jednotlivých sekcí, jejich pořadí a logiku, jak na sebe navazují tak, aby návštěvník stránkou přirozeně procházel. Součástí návrhu byla i tvorba doprovodných obrázků a grafických prvků, které dotvářejí vizuální identitu stránky."
+        },
+        {
+          "type": "figma_viewer",
+          "pages": [
+            {
+              "image": "media/prvnipomoc-web-full.jpg",
+              "label": ""
+            }
+          ]
+        },
+        {
+          "type": "link_button",
+          "url": "https://prvnipomoczive.cz",
+          "text": "Odkaz na celý web"
+        }
+      ],
+      "image_zoom": 100,
+      "image_position_x": "center",
+      "image_position_y": "center"
+    },
+    {
+      "slug": "infografiky",
+      "title": "Infografiky",
+      "category": "Grafika",
+      "tools": "Adobe Illustrator",
+      "client": "PPživě s. r. o.",
+      "card_subtitle": "PPživě s. r. o.",
+      "year": "2025 – současnost",
+      "summary": "Grafický návrh edukačních infografik pro web a emailing.",
+      "cover_image": "media/infografiky-cover.png",
+      "image_fit": "contain",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "O projektu"
+        },
+        {
+          "type": "subheading",
+          "text": "Infografiky"
+        },
+        {
+          "type": "paragraph",
+          "text": "Grafický návrh edukačních infografik pro web a emailing."
+        },
+        {
+          "type": "subheading",
+          "text": "Návrh a design"
+        },
+        {
+          "type": "paragraph",
+          "text": "Infografikám byl navržen zcela nový vizuální styl – barevnost, typografie i celková kompozice. Součástí je i tvorba vlastních ikonek, které doplňují a zjednodušují předávané informace tak, aby byly srozumitelné na první pohled."
+        },
+        {
+          "type": "image",
+          "src": "media/infografiky-cover.png",
+          "alt": "Infografiky"
+        },
+        {
+          "type": "lightbox_row",
+          "items": [
+            {
+              "thumb": "media/infografika-mrtvice-thumb.png",
+              "full": "media/infografika-mrtvice-full.png",
+              "caption": "Mrtvice"
+            },
+            {
+              "thumb": "media/infografika-resuscitace-thumb.png",
+              "full": "media/infografika-resuscitace-full.png",
+              "caption": "Resuscitace"
+            },
+            {
+              "thumb": "media/infografika-resuscitace-deti-thumb.png",
+              "full": "media/infografika-resuscitace-deti-full.png",
+              "caption": "Resuscitace dětí"
+            }
+          ]
+        }
+      ],
+      "image_zoom": 100,
+      "image_position_x": "center",
+      "image_position_y": "center"
+    },
+    {
+      "slug": "datalook",
+      "title": "Tvorba webu",
+      "category": "Webdesign",
+      "tools": "Figma",
+      "client": "Datalook",
+      "card_subtitle": "datalook.com",
+      "year": "2026",
+      "summary": "Grafický návrh a tvorba webových stránek – landing pages a podstránky.",
+      "cover_image": "media/datalook-cover.png",
+      "image_fit": "contain",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "O projektu"
+        },
+        {
+          "type": "subheading",
+          "text": "Web"
+        },
+        {
+          "type": "paragraph",
+          "text": "Kompletní grafický návrh webových stránek ve Figmě, od prvotní myšlenky po hotový vizuál připravený k naprogramování."
+        },
+        {
+          "type": "subheading",
+          "text": "Návrh a design"
+        },
+        {
+          "type": "paragraph",
+          "text": "Práce zahrnovala vymyšlení celkové struktury stránky – rozvržení jednotlivých sekcí, jejich pořadí a logiku, jak na sebe navazují tak, aby návštěvník stránkou přirozeně procházel. Součástí návrhu byla i tvorba doprovodných obrázků a grafických prvků, které dotvářejí vizuální identitu stránky."
+        },
+        {
+          "type": "figma_viewer",
+          "pages": [
+            {
+              "image": "media/datalook-home.jpg",
+              "label": "Home"
+            },
+            {
+              "image": "media/datalook-platforma.jpg",
+              "label": "Platforma"
+            },
+            {
+              "image": "media/datalook-partneri.jpg",
+              "label": "Partneři"
+            },
+            {
+              "image": "media/datalook-kontakt.jpg",
+              "label": "Kontakt"
+            }
+          ]
+        },
+        {
+          "type": "gallery_lightbox",
+          "heading": "Dashboards",
+          "items": [
+            {
+              "src": "media/datalook-graf-1.jpg",
+              "alt": "Dashboard 1"
+            },
+            {
+              "src": "media/datalook-graf-2.jpg",
+              "alt": "Dashboard 2"
+            },
+            {
+              "src": "media/datalook-graf-3.jpg",
+              "alt": "Dashboard 3"
+            }
+          ]
+        }
+      ],
+      "image_zoom": 100,
+      "image_position_x": "center",
+      "image_position_y": "center"
+    },
+    {
+      "slug": "3d",
+      "title": "3D vizualizace",
+      "category": "3D",
+      "tools": "Blender",
+      "client": "Osobní projekt",
+      "card_subtitle": "Osobní projekt",
+      "year": "2025",
+      "summary": "Tvorba 3D vizualizací a modelů.",
+      "cover_image": "media/3d-projekt.jpg",
+      "image_fit": "contain",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "O projektu"
+        },
+        {
+          "type": "subheading",
+          "text": "3D vizualizace"
+        },
+        {
+          "type": "paragraph",
+          "text": "Vlastní projekt zaměřený na tvorbu 3D vizualizací prostředí a místností."
+        },
+        {
+          "type": "subheading",
+          "text": "Návrh a design"
+        },
+        {
+          "type": "paragraph",
+          "text": "3D scény interiérů a prostorů. Projekt vznikl jako osobní tvorba, zaměřená na prohlubování dovedností v 3D modelování a vizualizaci."
+        },
+        {
+          "type": "image",
+          "src": "media/3d-projekt.jpg",
+          "alt": "3D vizualizace"
+        }
+      ],
+      "image_zoom": 100,
+      "image_position_x": "center",
+      "image_position_y": "center"
+    }
+  ]
+}
