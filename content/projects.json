@@ -1,16 +1,7 @@
 {
   "projects": [
     {
-      "slug": "sprava-profilu",
-      "title": "Správa profilu",
-      "category": "Social media",
-      "tools": "CapCut, Adobe CC",
-      "client": "PPživě s. r. o.",
-      "card_subtitle": "@prvnipomoczive",
-      "year": "2024 – současnost",
-      "summary": "Scénáře, natáčení, střih a plánování edukačního obsahu (reels, carousely).",
-      "cover_image": "media/socialmedia-cover.png",
-      "image_fit": "contain",
+      "image_position_x": "center",
       "blocks": [
         {
           "type": "heading",
@@ -79,21 +70,21 @@
           ]
         }
       ],
-      "image_zoom": 100,
-      "image_position_x": "center",
-      "image_position_y": "center"
+      "summary": "Scénáře, natáčení, střih a plánování edukačního obsahu (reels, carousely).",
+      "image_position_y": "center",
+      "card_subtitle": "@prvnipomoczive",
+      "slug": "sprava-profilu",
+      "client": "PPživě s. r. o.",
+      "image_fit": "contain",
+      "cover_image": "media/socialmedia-cover.png",
+      "image_zoom": 130,
+      "title": "Správa profilu",
+      "tools": "CapCut, Adobe CC",
+      "year": "2024 – současnost",
+      "category": "Social media"
     },
     {
-      "slug": "prvnipomoc-web",
-      "title": "Tvorba webu",
-      "category": "Webdesign",
-      "tools": "Figma",
-      "client": "PPživě s. r. o.",
-      "card_subtitle": "prvnipomoczive.cz",
-      "year": "2025/2026",
-      "summary": "Grafický návrh a tvorba webových stránek – landing pages a podstránky.",
-      "cover_image": "media/prvnipomoc-cover.png",
-      "image_fit": "contain",
+      "image_position_x": "center",
       "blocks": [
         {
           "type": "heading",
@@ -130,21 +121,21 @@
           "text": "Odkaz na celý web"
         }
       ],
+      "summary": "Grafický návrh a tvorba webových stránek – landing pages a podstránky.",
+      "image_position_y": "center",
+      "card_subtitle": "prvnipomoczive.cz",
+      "slug": "prvnipomoc-web",
+      "client": "PPživě s. r. o.",
+      "image_fit": "contain",
+      "cover_image": "media/prvnipomoc-cover.png",
       "image_zoom": 100,
-      "image_position_x": "center",
-      "image_position_y": "center"
+      "title": "Tvorba webu",
+      "tools": "Figma",
+      "year": "2025/2026",
+      "category": "Webdesign"
     },
     {
-      "slug": "infografiky",
-      "title": "Infografiky",
-      "category": "Grafika",
-      "tools": "Adobe Illustrator",
-      "client": "PPživě s. r. o.",
-      "card_subtitle": "PPživě s. r. o.",
-      "year": "2025 – současnost",
-      "summary": "Grafický návrh edukačních infografik pro web a emailing.",
-      "cover_image": "media/infografiky-cover.png",
-      "image_fit": "contain",
+      "image_position_x": "center",
       "blocks": [
         {
           "type": "heading",
@@ -192,21 +183,21 @@
           ]
         }
       ],
+      "summary": "Grafický návrh edukačních infografik pro web a emailing.",
+      "image_position_y": "center",
+      "card_subtitle": "PPživě s. r. o.",
+      "slug": "infografiky",
+      "client": "PPživě s. r. o.",
+      "image_fit": "contain",
+      "cover_image": "media/infografiky-cover.png",
       "image_zoom": 100,
-      "image_position_x": "center",
-      "image_position_y": "center"
+      "title": "Infografiky",
+      "tools": "Adobe Illustrator",
+      "year": "2025 – současnost",
+      "category": "Grafika"
     },
     {
-      "slug": "datalook",
-      "title": "Tvorba webu",
-      "category": "Webdesign",
-      "tools": "Figma",
-      "client": "Datalook",
-      "card_subtitle": "datalook.com",
-      "year": "2026",
-      "summary": "Grafický návrh a tvorba webových stránek – landing pages a podstránky.",
-      "cover_image": "media/datalook-cover.png",
-      "image_fit": "contain",
+      "image_position_x": "center",
       "blocks": [
         {
           "type": "heading",
@@ -268,21 +259,21 @@
           ]
         }
       ],
+      "summary": "Grafický návrh a tvorba webových stránek – landing pages a podstránky.",
+      "image_position_y": "center",
+      "card_subtitle": "datalook.com",
+      "slug": "datalook",
+      "client": "Datalook",
+      "image_fit": "contain",
+      "cover_image": "media/datalook-cover.png",
       "image_zoom": 100,
-      "image_position_x": "center",
-      "image_position_y": "center"
+      "title": "Tvorba webu",
+      "tools": "Figma",
+      "year": "2026",
+      "category": "Webdesign"
     },
     {
-      "slug": "3d",
-      "title": "3D vizualizace",
-      "category": "3D",
-      "tools": "Blender",
-      "client": "Osobní projekt",
-      "card_subtitle": "Osobní projekt",
-      "year": "2025",
-      "summary": "Tvorba 3D vizualizací a modelů.",
-      "cover_image": "media/3d-projekt.jpg",
-      "image_fit": "contain",
+      "image_position_x": "center",
       "blocks": [
         {
           "type": "heading",
@@ -310,9 +301,18 @@
           "alt": "3D vizualizace"
         }
       ],
+      "summary": "Tvorba 3D vizualizací a modelů.",
+      "image_position_y": "center",
+      "card_subtitle": "Osobní projekt",
+      "slug": "3d",
+      "client": "Osobní projekt",
+      "image_fit": "contain",
+      "cover_image": "media/3d-projekt.jpg",
       "image_zoom": 100,
-      "image_position_x": "center",
-      "image_position_y": "center"
+      "title": "3D vizualizace",
+      "tools": "Blender",
+      "year": "2025",
+      "category": "3D"
     }
   ]
 }
