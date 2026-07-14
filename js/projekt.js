@@ -22,18 +22,18 @@ function closeLightbox() {
 const TEXT_BLOCKS = new Set(['heading', 'subheading', 'paragraph', 'highlight']);
 
 function renderTextBlock(b) {
-  if (b.type === 'heading') return `<h2>${b.text}</h2>`;
-  if (b.type === 'subheading') return `<h3>${b.text}</h3>`;
-  if (b.type === 'paragraph') return `<p>${b.text}</p>`;
-  if (b.type === 'highlight') return `<p class="project-highlight">${b.text}</p>`;
+  if (b._type === 'heading') return `<h2>${b.text}</h2>`;
+  if (b._type === 'subheading') return `<h3>${b.text}</h3>`;
+  if (b._type === 'paragraph') return `<p>${b.text}</p>`;
+  if (b._type === 'highlight') return `<p class="project-highlight">${b.text}</p>`;
   return '';
 }
 
 function renderShowcaseBlock(b) {
-  if (b.type === 'image_block') {
+  if (b._type === 'image_block') {
     return `<img src="${sanityImageUrl(b.src)}" alt="${b.alt || ''}">`;
   }
-  if (b.type === 'featured_video') {
+  if (b._type === 'featured_video') {
     return `
       <div class="video-box featured">
         <img class="video-poster-img" src="${sanityImageUrl(b.poster)}" alt="${b.caption || ''}">
@@ -48,7 +48,7 @@ function renderShowcaseBlock(b) {
 }
 
 function renderFullWidthBlock(b) {
-  if (b.type === 'video_row') {
+  if (b._type === 'video_row') {
     const items = (b.items || []).map(v => `
       <div class="video-box">
         <img class="video-poster-img" src="${sanityImageUrl(v.poster)}" alt="${v.caption || ''}">
@@ -61,7 +61,7 @@ function renderFullWidthBlock(b) {
     return `<section class="videos-row">${items}</section>`;
   }
 
-  if (b.type === 'figma_viewer') {
+  if (b._type === 'figma_viewer') {
     const pages = (b.pages || []).map(p => ({ image: sanityImageUrl(p.image), label: p.label || '' }));
     const multi = pages.length > 1;
     const arrows = multi ? `<button class="figma-arrow" data-figma-prev aria-label="Předchozí stránka">←</button>` : '';
@@ -83,7 +83,7 @@ function renderFullWidthBlock(b) {
       </section>`;
   }
 
-  if (b.type === 'gallery_lightbox') {
+  if (b._type === 'gallery_lightbox') {
     const items = (b.items || []).map(i => `
       <div class="dashboard-card" data-lightbox="${sanityImageUrl(i.src)}">
         <img src="${sanityImageUrl(i.src)}" alt="${i.alt || ''}">
@@ -95,7 +95,7 @@ function renderFullWidthBlock(b) {
       </section>`;
   }
 
-  if (b.type === 'lightbox_row') {
+  if (b._type === 'lightbox_row') {
     const items = (b.items || []).map(i => `
       <div class="pdf-card" data-lightbox="${sanityImageUrl(i.full)}">
         <img src="${sanityImageUrl(i.thumb)}" alt="${i.caption || ''}">
@@ -104,7 +104,7 @@ function renderFullWidthBlock(b) {
     return `<section class="pdf-row">${items}</section>`;
   }
 
-  if (b.type === 'link_button') {
+  if (b._type === 'link_button') {
     return `
       <div class="figma-link-wrap">
         <a class="figma-link-btn" href="${b.url}" target="_blank" rel="noopener">${b.text || 'Odkaz'}</a>
@@ -182,9 +182,9 @@ function render(site, projects) {
   const fullWidthHTML = [];
 
   blocks.forEach(b => {
-    if (TEXT_BLOCKS.has(b.type)) {
+    if (TEXT_BLOCKS.has(b._type)) {
       leftHTML.push(renderTextBlock(b));
-    } else if ((b.type === 'image_block' || b.type === 'featured_video') && !rightHTML) {
+    } else if ((b._type === 'image_block' || b._type === 'featured_video') && !rightHTML) {
       rightHTML = renderShowcaseBlock(b);
     } else {
       fullWidthHTML.push(renderFullWidthBlock(b));
