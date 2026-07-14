@@ -1,9 +1,9 @@
 // ============================================================
 // Stránka jednotlivého projektu (projekt.html?p=slug).
-// Čte content/projects.json, najde projekt podle "slug" v URL
-// a vykreslí ho pomocí "bloků" (blocks). Nový projekt / nový
-// blok přidaný přes /admin se zobrazí automaticky - tenhle
-// soubor se kvůli tomu upravovat nemusí.
+// Čte data ze Sanity, najde projekt podle "slug" v URL a
+// vykreslí ho pomocí "bloků" (blocks). Nový projekt / nový blok
+// přidaný v administraci se zobrazí automaticky - tenhle soubor
+// se kvůli tomu upravovat nemusí.
 // ============================================================
 
 function qs(name) {
@@ -30,13 +30,13 @@ function renderTextBlock(b) {
 }
 
 function renderShowcaseBlock(b) {
-  if (b.type === 'image') {
-    return `<img src="${b.src}" alt="${b.alt || ''}">`;
+  if (b.type === 'image_block') {
+    return `<img src="${sanityImageUrl(b.src)}" alt="${b.alt || ''}">`;
   }
   if (b.type === 'featured_video') {
     return `
       <div class="video-box featured">
-        <img class="video-poster-img" src="${b.poster}" alt="${b.caption || ''}">
+        <img class="video-poster-img" src="${sanityImageUrl(b.poster)}" alt="${b.caption || ''}">
         <video preload="none" playsinline style="display:none">
           <source src="${b.video}" type="video/mp4">
         </video>
@@ -51,7 +51,7 @@ function renderFullWidthBlock(b) {
   if (b.type === 'video_row') {
     const items = (b.items || []).map(v => `
       <div class="video-box">
-        <img class="video-poster-img" src="${v.poster}" alt="${v.caption || ''}">
+        <img class="video-poster-img" src="${sanityImageUrl(v.poster)}" alt="${v.caption || ''}">
         <video preload="none" playsinline style="display:none">
           <source src="${v.video}" type="video/mp4">
         </video>
@@ -62,7 +62,7 @@ function renderFullWidthBlock(b) {
   }
 
   if (b.type === 'figma_viewer') {
-    const pages = b.pages || [];
+    const pages = (b.pages || []).map(p => ({ image: sanityImageUrl(p.image), label: p.label || '' }));
     const multi = pages.length > 1;
     const arrows = multi ? `<button class="figma-arrow" data-figma-prev aria-label="Předchozí stránka">←</button>` : '';
     const arrowsRight = multi ? `<button class="figma-arrow" data-figma-next aria-label="Další stránka">→</button>` : '';
@@ -85,8 +85,8 @@ function renderFullWidthBlock(b) {
 
   if (b.type === 'gallery_lightbox') {
     const items = (b.items || []).map(i => `
-      <div class="dashboard-card" data-lightbox="${i.src}">
-        <img src="${i.src}" alt="${i.alt || ''}">
+      <div class="dashboard-card" data-lightbox="${sanityImageUrl(i.src)}">
+        <img src="${sanityImageUrl(i.src)}" alt="${i.alt || ''}">
       </div>`).join('');
     return `
       <section class="dashboard-section">
@@ -97,8 +97,8 @@ function renderFullWidthBlock(b) {
 
   if (b.type === 'lightbox_row') {
     const items = (b.items || []).map(i => `
-      <div class="pdf-card" data-lightbox="${i.full}">
-        <img src="${i.thumb}" alt="${i.caption || ''}">
+      <div class="pdf-card" data-lightbox="${sanityImageUrl(i.full)}">
+        <img src="${sanityImageUrl(i.thumb)}" alt="${i.caption || ''}">
         <div class="pdf-caption"><span>${i.caption || ''}</span></div>
       </div>`).join('');
     return `<section class="pdf-row">${items}</section>`;
@@ -153,9 +153,8 @@ function wireUpInteractivity(root) {
   });
 }
 
-function render(site, data) {
+function render(site, projects) {
   const slug = qs('p');
-  const projects = data.projects || [];
   const idx = projects.findIndex(p => p.slug === slug);
   const project = idx >= 0 ? projects[idx] : projects[0];
   if (!project) {
@@ -185,7 +184,7 @@ function render(site, data) {
   blocks.forEach(b => {
     if (TEXT_BLOCKS.has(b.type)) {
       leftHTML.push(renderTextBlock(b));
-    } else if ((b.type === 'image' || b.type === 'featured_video') && !rightHTML) {
+    } else if ((b.type === 'image_block' || b.type === 'featured_video') && !rightHTML) {
       rightHTML = renderShowcaseBlock(b);
     } else {
       fullWidthHTML.push(renderFullWidthBlock(b));
@@ -238,7 +237,7 @@ function render(site, data) {
 }
 
 Promise.all([
-  fetch('content/site.json').then(r => r.json()),
-  fetch('content/projects.json').then(r => r.json())
-]).then(([site, data]) => render(site, data))
+  sanityFetch('*[_type == "siteSettings"][0]'),
+  sanityFetch('*[_type == "project"] | order(order asc)')
+]).then(([site, projects]) => render(site || {}, projects || []))
   .catch(err => console.error('Nepodařilo se načíst obsah projektu:', err));

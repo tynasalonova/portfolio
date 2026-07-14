@@ -1,10 +1,10 @@
 // ============================================================
-// Homepage: načte content/site.json a content/projects.json
+// Homepage: načte data ze Sanity (administrace na portfolio-admin)
 // a vykreslí nav/hero/about/služby/CTA/patičku + mřížku projektů.
 // Karty se vykreslují ve skupinách po 5: 2 velké nahoře, 3 menší
 // pod tím, pořád dokola - funguje automaticky s libovolným
-// počtem projektů. Nový projekt v content/projects.json (přes
-// /admin) se zobrazí automaticky, bez zásahu do tohoto souboru.
+// počtem projektů. Nový projekt přidaný v Sanity se zobrazí
+// automaticky, bez zásahu do tohoto souboru.
 // ============================================================
 
 function el(tag, opts) {
@@ -71,7 +71,7 @@ function projectCard(p) {
         <span class="badge badge-red"></span>
         <span class="badge badge-tools"></span>
       </div>
-      <img class="card-img" src="${p.cover_image}" alt="${p.title}">
+      <img class="card-img" src="${sanityImageUrl(p.cover_image)}" alt="${p.title}">
     </div>
     <div class="card-body">
       <h3 class="card-title"></h3>
@@ -137,11 +137,11 @@ function renderProjects(projects) {
 }
 
 Promise.all([
-  fetch('content/site.json').then(r => r.json()),
-  fetch('content/projects.json').then(r => r.json())
-]).then(([site, data]) => {
-  renderSite(site);
-  renderProjects(data.projects || []);
+  sanityFetch('*[_type == "siteSettings"][0]'),
+  sanityFetch('*[_type == "project"] | order(order asc)')
+]).then(([site, projects]) => {
+  renderSite(site || {});
+  renderProjects(projects || []);
 }).catch(err => {
   console.error('Nepodařilo se načíst obsah webu:', err);
 });
