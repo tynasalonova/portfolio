@@ -136,6 +136,23 @@ function renderProjects(projects) {
   });
 }
 
+const navToggle = document.getElementById('nav-toggle');
+const navRight = document.getElementById('nav-right');
+if (navToggle && navRight) {
+  navToggle.addEventListener('click', () => {
+    const open = navRight.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('nav-open', open);
+  });
+  navRight.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navRight.classList.remove('open');
+    navToggle.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('nav-open');
+  }));
+}
+
 Promise.all([
   sanityFetch('*[_type == "siteSettings"][0]'),
   sanityFetch('*[_type == "project"] | order(order asc)')

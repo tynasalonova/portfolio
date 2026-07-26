@@ -15,7 +15,10 @@
   <section class="hero">
     <nav>
       <a class="nav-logo" href="#" id="nav-logo">Kristýna Salonová</a>
-      <div class="nav-right">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-right" id="nav-right">
         <div class="nav-links">
           <a href="#prace">Práce</a>
           <a href="#sluzby">Služby</a>
@@ -25,7 +28,11 @@
         <a class="nav-btn" id="nav-mail-btn" href="#">Napište mi</a>
       </div>
     </nav>
-    <img class="hero-bg" src="media/hero.jpg" alt="Kristýna Salonová">
+    <picture>
+      <source media="(max-width: 600px)" srcset="media/hero-mobile.jpg">
+      <source media="(max-width: 900px)" srcset="media/hero-tablet.jpg">
+      <img class="hero-bg" src="media/hero.jpg" alt="Kristýna Salonová">
+    </picture>
     <p class="hero-sub" id="hero-sub"></p>
   </section>
 
