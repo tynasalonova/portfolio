@@ -18,6 +18,28 @@ function closeLightbox() {
   document.getElementById('lightbox').classList.remove('active');
 }
 
+// ── YouTube embed helpery ───────────────────────────────────
+function isYouTubeUrl(url) {
+  return !!url && /youtu\.?be/i.test(url);
+}
+
+function youtubeEmbedUrl(url) {
+  if (!url) return '';
+  const patterns = [
+    /youtu\.be\/([a-zA-Z0-9_-]{6,})/,
+    /[?&]v=([a-zA-Z0-9_-]{6,})/,
+    /youtube\.com\/embed\/([a-zA-Z0-9_-]{6,})/,
+    /youtube\.com\/shorts\/([a-zA-Z0-9_-]{6,})/
+  ];
+  let id = '';
+  for (const re of patterns) {
+    const m = url.match(re);
+    if (m) { id = m[1]; break; }
+  }
+  if (!id) return '';
+  return `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&modestbranding=1&rel=0&iv_load_policy=3&playsinline=1`;
+}
+
 // ── Renderery jednotlivých typů bloků ──────────────────────
 const TEXT_BLOCKS = new Set(['heading', 'subheading', 'paragraph', 'highlight']);
 
@@ -35,11 +57,8 @@ function renderShowcaseBlock(b) {
   }
   if (b._type === 'featured_video') {
     return `
-      <div class="video-box featured">
+      <div class="video-box featured" data-video-url="${b.video || ''}">
         <img class="video-poster-img" src="${sanityImageUrl(b.poster)}" alt="${b.caption || ''}">
-        <video preload="metadata" playsinline style="display:none">
-          <source src="${b.video}" type="video/mp4">
-        </video>
         <div class="play-overlay" data-play><div class="play-btn"></div></div>
         <div class="video-caption">${b.caption || ''}</div>
       </div>`;
@@ -50,11 +69,8 @@ function renderShowcaseBlock(b) {
 function renderFullWidthBlock(b) {
   if (b._type === 'video_row') {
     const items = (b.items || []).map(v => `
-      <div class="video-box">
+      <div class="video-box" data-video-url="${v.video || ''}">
         <img class="video-poster-img" src="${sanityImageUrl(v.poster)}" alt="${v.caption || ''}">
-        <video preload="metadata" playsinline style="display:none">
-          <source src="${v.video}" type="video/mp4">
-        </video>
         <div class="play-overlay" data-play><div class="play-btn"></div></div>
         <div class="video-caption">${v.caption || ''}</div>
       </div>`).join('');
@@ -119,14 +135,27 @@ function wireUpInteractivity(root) {
     overlay.addEventListener('click', () => {
       const box = overlay.closest('.video-box');
       const poster = box.querySelector('.video-poster-img');
-      const video = box.querySelector('video');
+      const videoUrl = box.dataset.videoUrl || '';
       overlay.style.display = 'none';
       if (poster) poster.style.display = 'none';
-      video.style.display = 'block';
-      video.setAttribute('controls', '');
-      video.setAttribute('preload', 'auto');
-      video.load();
-      video.play();
+
+      if (isYouTubeUrl(videoUrl)) {
+        const iframe = document.createElement('iframe');
+        iframe.className = 'video-embed-iframe';
+        iframe.src = youtubeEmbedUrl(videoUrl);
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+        iframe.setAttribute('allowfullscreen', '');
+        box.appendChild(iframe);
+      } else {
+        const video = document.createElement('video');
+        video.className = 'video-embed-fallback';
+        video.src = videoUrl;
+        video.controls = true;
+        video.autoplay = true;
+        video.playsInline = true;
+        box.appendChild(video);
+      }
     });
   });
 
