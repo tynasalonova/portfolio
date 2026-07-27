@@ -205,12 +205,14 @@ function render(site, projects) {
 
   document.getElementById('project-extra').innerHTML = fullWidthHTML.join('\n');
 
-  // pagination – automaticky podle pořadí projektů v datech
+  // pagination – automaticky podle pořadí projektů v datech (nahoře i dole)
   const prev = projects[(realIdx - 1 + projects.length) % projects.length];
   const next = projects[(realIdx + 1) % projects.length];
-  document.getElementById('project-pagination').innerHTML = `
+  const paginationHTML = `
     <a href="projekt.html?p=${encodeURIComponent(prev.slug)}">← Předchozí projekt</a>
     <a href="projekt.html?p=${encodeURIComponent(next.slug)}">Další projekt →</a>`;
+  document.getElementById('project-pagination-top').innerHTML = paginationHTML;
+  document.getElementById('project-pagination').innerHTML = paginationHTML;
 
   // patička – kontakty ze site.json
   const footerCol = document.getElementById('footer-contact-col');

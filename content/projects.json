@@ -299,6 +299,35 @@
           "type": "image",
           "src": "media/3d-projekt.jpg",
           "alt": "3D vizualizace"
+        },
+        {
+          "type": "subheading",
+          "text": "Školní projekt: místnost"
+        },
+        {
+          "type": "gallery_lightbox",
+          "heading": "",
+          "items": [
+            { "src": "media/3d-mistnost-celek.jpg", "alt": "Místnost – celek" },
+            { "src": "media/3d-mistnost-gauc.jpg", "alt": "Místnost – gauč" },
+            { "src": "media/3d-mistnost-krb.jpg", "alt": "Místnost – krb" },
+            { "src": "media/3d-mistnost-knihovna.jpg", "alt": "Místnost – knihovna" },
+            { "src": "media/3d-mistnost-famfrpal.jpg", "alt": "Místnost – famfrpál" }
+          ]
+        },
+        {
+          "type": "subheading",
+          "text": "Další projekty"
+        },
+        {
+          "type": "gallery_lightbox",
+          "heading": "",
+          "items": [
+            { "src": "media/3d-svicky.jpg", "alt": "Svíčky" },
+            { "src": "media/3d-twilight.jpg", "alt": "Twilight" },
+            { "src": "media/3d-detektiv.jpg", "alt": "Detektiv" },
+            { "src": "media/3d-benzinka.jpg", "alt": "Benzinka" }
+          ]
         }
       ],
       "summary": "Tvorba 3D vizualizací a modelů.",

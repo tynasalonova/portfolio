@@ -15,7 +15,7 @@
   --olive: #2B3627;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
 
 body {
   background: var(--dark);
@@ -33,9 +33,9 @@ nav {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  padding: 2.5rem 12rem 1.1rem;
-  background: transparent;
-  position: absolute;
+  padding: 1.4rem 12rem;
+  background: var(--red);
+  position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
 }
@@ -64,13 +64,13 @@ nav a {
 nav a:hover { opacity: 0.7; }
 
 .nav-btn {
-  background: var(--red);
-  color: var(--cream) !important;
+  background: var(--cream);
+  color: var(--red) !important;
   padding: 0.5rem 1.3rem;
   border-radius: 8px;
   transition: opacity 0.2s;
 }
-.nav-btn:hover { opacity: 0.8; color: var(--cream) !important; }
+.nav-btn:hover { opacity: 0.8; }
 
 .nav-ornament { height: 28px; display: block; }
 
@@ -122,7 +122,7 @@ nav a:hover { opacity: 0.7; }
 
 /* ── HERO (homepage) ── */
 .hero { position: relative; }
-.hero picture { display: block; line-height: 0; }
+.hero picture { display: block; line-height: 0; transition: padding 0.25s ease; }
 .hero img.hero-bg { width: 100%; height: auto; display: block; }
 .hero::after {
   content: '';
@@ -312,7 +312,9 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
 .footer-copyright { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--cream); }
 
 /* ── PROJECT DETAIL PAGE ── */
-.project-hero { padding: 10rem 12rem 1rem; display: flex; justify-content: space-between; align-items: flex-end; gap: 3rem; position: relative; }
+.project-hero { padding: 8rem 12rem 1rem; position: relative; }
+.project-pagination-top { margin-bottom: 3rem; }
+.project-hero-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 3rem; }
 .curl-project-1 { top: 6rem; left: 0; width: 220px; }
 .curl-project-2 { top: 1rem; right: 0; width: 200px; transform: scaleX(-1); }
 .curl-project-3 { bottom: -1rem; left: 0; width: 200px; transform: scaleY(-1); }
@@ -385,14 +387,19 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
 .lightbox-close:hover { background: rgba(235,229,211,0.3); }
 
 .project-pagination { padding: 2rem 12rem 4rem; position: relative; }
-.project-pagination-links { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
-.project-pagination a { font-family: 'itc-benguiat-condensed', serif; font-size: 16px; font-weight: 500; color: var(--cream); text-decoration: none; transition: opacity 0.2s; }
-.project-pagination a:hover { opacity: 0.6; }
+.project-pagination-links, .project-pagination-top { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+.project-pagination-links a, .project-pagination-top a { font-family: 'itc-benguiat-condensed', serif; font-size: 16px; font-weight: 500; color: var(--cream); text-decoration: none; transition: opacity 0.2s; }
+.project-pagination-links a:hover, .project-pagination-top a:hover { opacity: 0.6; }
 
 /* ── MAX WIDTH (very large screens) ── */
-.hero, .works, .about, .services, .cta-wrap, footer,
+.works, .about, .services, .cta-wrap,
 .project-nav, .project-hero, .project-content, .figma-window-wrap,
 .videos-row, .dashboard-section, .pdf-row, .project-pagination, .figma-link-wrap {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero picture, .footer-top, .footer-bottom {
   max-width: 1800px;
   margin-left: auto;
   margin-right: auto;
@@ -438,7 +445,8 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
   .about-title, .about-text { text-align: center; }
   .services { padding: 3rem 2rem 4rem; }
   .project-nav, .project-hero, .project-content, .project-content.no-side, .figma-window-wrap, .videos-row, .dashboard-section, .pdf-row, .project-pagination, .figma-link-wrap { padding-left: 2rem; padding-right: 2rem; }
-  .project-hero { flex-direction: column; align-items: flex-start; }
+  .project-hero-row { flex-direction: column; align-items: flex-start; }
+  .project-pagination-top { flex-wrap: wrap; gap: 0.5rem 1.5rem; }
   .project-info-box { width: 100%; }
   .project-info-value { white-space: normal; }
   .project-content, .project-content.project-sprava-profilu, .project-content.no-side { grid-template-columns: 1fr; }
