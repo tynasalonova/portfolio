@@ -38,7 +38,9 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
+  transition: background 0.25s ease;
 }
+nav.nav-scrolled { background: var(--red); }
 
 .nav-right { display: flex; align-items: center; gap: 2.2rem; }
 
@@ -71,6 +73,7 @@ nav a:hover { opacity: 0.7; }
   transition: opacity 0.2s, background 0.25s ease, color 0.25s ease;
 }
 .nav-btn:hover { opacity: 0.8; }
+nav.nav-scrolled .nav-btn { background: var(--cream); color: var(--red) !important; }
 
 .nav-ornament { height: 28px; display: block; }
 
@@ -314,15 +317,14 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
 /* ── PROJECT DETAIL PAGE ── */
 .project-hero { padding: 8rem 12rem 1rem; position: relative; }
 .project-pagination-top { margin-bottom: 3rem; }
-.project-hero-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 3rem; }
+.project-hero-row { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: end; }
 .curl-project-1 { top: 6rem; left: 0; width: 220px; }
 .curl-project-2 { top: 1rem; right: 0; width: 200px; transform: scaleX(-1); }
 .curl-project-3 { bottom: -1rem; left: 0; width: 200px; transform: scaleY(-1); }
 .curl-project-4 { bottom: 4rem; right: 0; width: 220px; transform: scale(-1, -1); }
-.project-hero-text { flex: 1; }
 .project-badges { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
 .project-title { font-family: 'norman-variable', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 400; line-height: 1.1; margin-bottom: 1rem; }
-.project-info-box { background: var(--green); border: 1px solid var(--red); border-radius: 16px; padding: 1.3rem 2rem; width: 460px; display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem 2rem; flex-shrink: 0; }
+.project-info-box { background: var(--green); border: 1px solid var(--red); border-radius: 16px; padding: 1.3rem 2rem; width: 100%; max-width: 460px; justify-self: end; display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem 2rem; }
 .project-info-label { font-size: 12px; color: var(--cream); margin-bottom: 0.25rem; }
 .project-info-value { font-family: 'itc-benguiat-condensed', serif; font-size: 15px; color: var(--cream); white-space: nowrap; }
 
@@ -425,20 +427,17 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
     padding: 2rem 2.5rem 1.1rem;
     justify-content: flex-end;
     position: absolute;
-    transition: background 0.25s ease;
   }
-  nav.nav-scrolled { background: var(--red); }
   .project-nav, .project-hero, .project-content, .project-content.no-side, .figma-window-wrap, .videos-row, .dashboard-section, .pdf-row, .project-pagination, .figma-link-wrap { padding-left: 2rem; padding-right: 2rem; }
-  .project-hero-row { flex-direction: column; align-items: flex-start; }
+  .project-hero-row { grid-template-columns: 1fr; align-items: start; }
+  .project-info-box { justify-self: stretch; width: 100%; max-width: none; }
   .project-pagination-top { flex-wrap: wrap; gap: 0.5rem 1.5rem; }
-  .project-info-box { width: 100%; }
   .project-info-value { white-space: normal; }
   .project-content, .project-content.project-sprava-profilu, .project-content.no-side { grid-template-columns: 1fr; }
   .videos-row, .dashboard-row, .pdf-row { grid-template-columns: 1fr; }
   .video-box.featured { max-width: 380px; margin: 0 auto; }
   .dashboard-card, .pdf-card { max-width: 380px; margin: 0 auto; width: 100%; }
   .figma-window { height: 480px; }
-  nav.nav-scrolled .nav-btn { background: var(--cream); color: var(--red) !important; }
   .nav-logo { display: none; }
   .nav-toggle { display: flex; }
   .nav-right {
