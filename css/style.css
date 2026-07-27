@@ -183,6 +183,10 @@ nav a:hover { opacity: 0.7; }
 }
 
 @media (max-width: 1450px) {
+  .works-row-big, .works-row-small { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 1050px) {
   .works-row-big, .works-row-small { grid-template-columns: 1fr; }
 }
 
@@ -412,7 +416,7 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
   }
   body.nav-open { overflow: hidden; }
   .hero-sub { display: none; }
-  .hero-bg { aspect-ratio: 0.85; object-fit: cover; object-position: 55% 18%; height: auto; }
+  .hero-bg { aspect-ratio: 0.85; object-fit: cover; object-position: 35% 18%; height: auto; }
   .works { padding: 3rem 2.5rem; }
   .works .section-heading { text-align: center; }
   .about { padding: 3rem 2rem 3rem; }
@@ -420,6 +424,19 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
   .about-title, .about-text { text-align: center; }
   .services { padding: 3rem 2rem 4rem; }
   .services-grid { grid-template-columns: 1fr; }
+  .project-nav, .project-hero, .project-content, .project-content.no-side, .figma-window-wrap, .videos-row, .dashboard-section, .pdf-row, .project-pagination, .figma-link-wrap { padding-left: 2rem; padding-right: 2rem; }
+  .project-hero { flex-direction: column; align-items: flex-start; }
+  .project-info-box { width: 100%; }
+  .project-info-value { white-space: normal; }
+  .project-content, .project-content.project-sprava-profilu, .project-content.no-side { grid-template-columns: 1fr; }
+  .videos-row, .dashboard-row, .pdf-row { grid-template-columns: 1fr; }
+  .video-box.featured { max-width: 380px; margin: 0 auto; }
+  .dashboard-card, .pdf-card { max-width: 380px; margin: 0 auto; width: 100%; }
+  .figma-window { height: 480px; }
+  .hero picture { padding: 0 3rem; }
+}
+
+@media (max-width: 1050px) {
   .cta-wrap { padding: 0 2rem 3rem; }
   .cta { flex-wrap: wrap; gap: 1.5rem; }
   .cta-content { text-align: center; }
@@ -427,19 +444,14 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
   footer { padding: 2.5rem 2rem 1.2rem; }
   .footer-top { grid-template-columns: 1fr; gap: 2rem; }
   .footer-nav { flex-direction: column; align-items: flex-start; gap: 1.6rem; }
-  .project-nav, .project-hero, .project-content, .project-content.no-side, .figma-window-wrap, .videos-row, .dashboard-section, .pdf-row, .project-pagination, .figma-link-wrap { padding-left: 2rem; padding-right: 2rem; }
-  .project-hero { flex-direction: column; align-items: flex-start; }
-  .project-info-box { width: 100%; }
-  .project-info-value { white-space: normal; }
-  .project-content, .project-content.project-sprava-profilu, .project-content.no-side { grid-template-columns: 1fr; }
-  .videos-row, .dashboard-row, .pdf-row { grid-template-columns: 1fr; }
-  .video-box.featured { max-width: 100%; margin: 0; }
-  .figma-window { height: 480px; }
 }
 
 @media (max-width: 600px) {
   nav { padding: 1.5rem 1.25rem 1rem; }
   .hero-bg { aspect-ratio: 0.72; object-position: 40% 15%; }
+  .video-box.featured { max-width: 300px; }
+  .dashboard-card, .pdf-card { max-width: 300px; }
+  .hero picture { padding: 0; }
   .works { padding: 2.5rem 1.25rem; }
   .works .section-heading { text-align: left; }
   .about { padding: 2.5rem 1.25rem 2.5rem; }
