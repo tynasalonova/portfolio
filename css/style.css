@@ -33,12 +33,14 @@ nav {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  padding: 1.4rem 12rem;
-  background: var(--red);
+  padding: 2.5rem 12rem 1.1rem;
+  background: transparent;
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
+  transition: background 0.25s ease;
 }
+nav.nav-scrolled { background: var(--red); }
 
 .nav-right { display: flex; align-items: center; gap: 2.2rem; }
 
@@ -64,13 +66,14 @@ nav a {
 nav a:hover { opacity: 0.7; }
 
 .nav-btn {
-  background: var(--cream);
-  color: var(--red) !important;
+  background: var(--red);
+  color: var(--cream) !important;
   padding: 0.5rem 1.3rem;
   border-radius: 8px;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, background 0.25s ease, color 0.25s ease;
 }
 .nav-btn:hover { opacity: 0.8; }
+nav.nav-scrolled .nav-btn { background: var(--cream); color: var(--red) !important; }
 
 .nav-ornament { height: 28px; display: block; }
 
@@ -391,15 +394,14 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
 .project-pagination-links a, .project-pagination-top a { font-family: 'itc-benguiat-condensed', serif; font-size: 16px; font-weight: 500; color: var(--cream); text-decoration: none; transition: opacity 0.2s; }
 .project-pagination-links a:hover, .project-pagination-top a:hover { opacity: 0.6; }
 
-/* ── MAX WIDTH (very large screens) ── */
-.works, .about, .services, .cta-wrap,
+/* ── MAX WIDTH (very large screens) ──
+   Sekce (hero, works, about, services, cta-wrap, footer) zůstávají přes
+   celou šířku (pozadí/foto/křivky jedou do kraje). Capuje se jen čitelný
+   obsah uvnitř, aby na velkých monitorech nebyl nepřirozeně roztažený. */
+.section-heading, .works-grid, .services-grid, .about-box, .cta,
 .project-nav, .project-hero, .project-content, .figma-window-wrap,
-.videos-row, .dashboard-section, .pdf-row, .project-pagination, .figma-link-wrap {
-  max-width: 1800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.hero picture, .footer-top, .footer-bottom {
+.videos-row, .dashboard-section, .pdf-row, .project-pagination, .figma-link-wrap,
+.footer-top, .footer-bottom {
   max-width: 1800px;
   margin-left: auto;
   margin-right: auto;

@@ -152,6 +152,14 @@ if (navToggle && navRight) {
   }));
 }
 
+// Menu se zbarví vínově, až když se stránkou scrolluje (nahoře zůstává průhledné).
+const navEl = document.querySelector('nav');
+if (navEl) {
+  const updateNavScroll = () => navEl.classList.toggle('nav-scrolled', window.scrollY > 40);
+  updateNavScroll();
+  window.addEventListener('scroll', updateNavScroll, { passive: true });
+}
+
 Promise.all([
   sanityFetch('*[_type == "siteSettings"][0]'),
   sanityFetch('*[_type == "project"] | order(order asc)')
