@@ -37,7 +37,7 @@ function renderShowcaseBlock(b) {
     return `
       <div class="video-box featured">
         <img class="video-poster-img" src="${sanityImageUrl(b.poster)}" alt="${b.caption || ''}">
-        <video preload="none" playsinline style="display:none">
+        <video preload="metadata" playsinline style="display:none">
           <source src="${b.video}" type="video/mp4">
         </video>
         <div class="play-overlay" data-play><div class="play-btn"></div></div>
@@ -52,7 +52,7 @@ function renderFullWidthBlock(b) {
     const items = (b.items || []).map(v => `
       <div class="video-box">
         <img class="video-poster-img" src="${sanityImageUrl(v.poster)}" alt="${v.caption || ''}">
-        <video preload="none" playsinline style="display:none">
+        <video preload="metadata" playsinline style="display:none">
           <source src="${v.video}" type="video/mp4">
         </video>
         <div class="play-overlay" data-play><div class="play-btn"></div></div>

@@ -312,7 +312,11 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
 .footer-copyright { font-family: 'Inter', sans-serif; font-size: 12px; color: var(--cream); }
 
 /* ── PROJECT DETAIL PAGE ── */
-.project-hero { padding: 10rem 12rem 1rem; display: flex; justify-content: space-between; align-items: flex-end; gap: 3rem; }
+.project-hero { padding: 10rem 12rem 1rem; display: flex; justify-content: space-between; align-items: flex-end; gap: 3rem; position: relative; }
+.curl-project-1 { top: 6rem; left: 0; width: 220px; }
+.curl-project-2 { top: 1rem; right: 0; width: 200px; transform: scaleX(-1); }
+.curl-project-3 { bottom: -1rem; left: 0; width: 200px; transform: scaleY(-1); }
+.curl-project-4 { bottom: 4rem; right: 0; width: 220px; transform: scale(-1, -1); }
 .project-hero-text { flex: 1; }
 .project-badges { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
 .project-title { font-family: 'norman-variable', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 400; line-height: 1.1; margin-bottom: 1rem; }
@@ -380,9 +384,19 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
 .lightbox-close { position: fixed; top: 2rem; right: 3rem; width: 44px; height: 44px; border-radius: 50%; background: rgba(235,229,211,0.15); border: none; color: var(--cream); font-size: 26px; line-height: 1; cursor: pointer; font-family: 'itc-benguiat-condensed', serif; transition: background 0.2s; }
 .lightbox-close:hover { background: rgba(235,229,211,0.3); }
 
-.project-pagination { padding: 2rem 12rem 4rem; display: flex; justify-content: space-between; align-items: center; }
+.project-pagination { padding: 2rem 12rem 4rem; position: relative; }
+.project-pagination-links { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
 .project-pagination a { font-family: 'itc-benguiat-condensed', serif; font-size: 16px; font-weight: 500; color: var(--cream); text-decoration: none; transition: opacity 0.2s; }
 .project-pagination a:hover { opacity: 0.6; }
+
+/* ── MAX WIDTH (very large screens) ── */
+.hero, .works, .about, .services, .cta-wrap, footer,
+.project-nav, .project-hero, .project-content, .figma-window-wrap,
+.videos-row, .dashboard-section, .pdf-row, .project-pagination, .figma-link-wrap {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1450px) {
@@ -423,7 +437,6 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
   .about-box { flex-direction: column; text-align: center; }
   .about-title, .about-text { text-align: center; }
   .services { padding: 3rem 2rem 4rem; }
-  .services-grid { grid-template-columns: 1fr; }
   .project-nav, .project-hero, .project-content, .project-content.no-side, .figma-window-wrap, .videos-row, .dashboard-section, .pdf-row, .project-pagination, .figma-link-wrap { padding-left: 2rem; padding-right: 2rem; }
   .project-hero { flex-direction: column; align-items: flex-start; }
   .project-info-box { width: 100%; }
@@ -433,7 +446,6 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
   .video-box.featured { max-width: 380px; margin: 0 auto; }
   .dashboard-card, .pdf-card { max-width: 380px; margin: 0 auto; width: 100%; }
   .figma-window { height: 480px; }
-  .hero picture { padding: 0 3rem; }
 }
 
 @media (max-width: 1050px) {
@@ -444,6 +456,8 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
   footer { padding: 2.5rem 2rem 1.2rem; }
   .footer-top { grid-template-columns: 1fr; gap: 2rem; }
   .footer-nav { flex-direction: column; align-items: flex-start; gap: 1.6rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .hero picture { padding: 0 3rem; }
 }
 
 @media (max-width: 600px) {
@@ -457,7 +471,7 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
   .about { padding: 2.5rem 1.25rem 2.5rem; }
   .about-box { align-items: flex-start; }
   .about-title, .about-text { text-align: left; }
-  .about-photo { width: 140px; }
+  .about-photo { width: 245px; }
   .project-nav, .project-hero, .project-content, .project-content.no-side, .figma-window-wrap, .videos-row, .dashboard-section, .pdf-row, .project-pagination, .figma-link-wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
   .project-info-box { grid-template-columns: 1fr; }
   .figma-window { height: 340px; }
