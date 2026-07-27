@@ -52,8 +52,7 @@ function renderSite(site) {
   const links = [
     ['mailto:' + site.email, site.email],
     ['tel:' + (site.phone_href || site.phone), site.phone],
-    [site.linkedin_url || '#', 'LinkedIn'],
-    [site.instagram_url || '#', 'Instagram']
+    ['https://www.linkedin.com/in/krist%C3%BDna-salonov%C3%A1-494084265/', 'LinkedIn']
   ];
   links.forEach(([href, text]) => {
     const a = el('a', { href, textContent: text });
