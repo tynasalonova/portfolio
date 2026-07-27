@@ -15,7 +15,7 @@
   --olive: #2B3627;
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--dark);
@@ -35,12 +35,10 @@ nav {
   gap: 2rem;
   padding: 2.5rem 12rem 1.1rem;
   background: transparent;
-  position: fixed;
+  position: absolute;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  transition: background 0.25s ease;
 }
-nav.nav-scrolled { background: var(--red); }
 
 .nav-right { display: flex; align-items: center; gap: 2.2rem; }
 
@@ -73,7 +71,6 @@ nav a:hover { opacity: 0.7; }
   transition: opacity 0.2s, background 0.25s ease, color 0.25s ease;
 }
 .nav-btn:hover { opacity: 0.8; }
-nav.nav-scrolled .nav-btn { background: var(--cream); color: var(--red) !important; }
 
 .nav-ornament { height: 28px; display: block; }
 
@@ -395,12 +392,14 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
 .project-pagination-links a:hover, .project-pagination-top a:hover { opacity: 0.6; }
 
 /* ── MAX WIDTH (very large screens) ──
-   Sekce (hero, works, about, services, cta-wrap, footer) zůstávají přes
-   celou šířku (pozadí/foto/křivky jedou do kraje). Capuje se jen čitelný
-   obsah uvnitř, aby na velkých monitorech nebyl nepřirozeně roztažený. */
+   Sekce (hero, works, about, services, cta-wrap, footer, project-nav,
+   project-hero, project-pagination) zůstávají přes celou šířku (pozadí/
+   foto/křivky jedou do kraje). Capuje se jen čitelný obsah uvnitř, aby
+   na velkých monitorech nebyl nepřirozeně roztažený. */
 .section-heading, .works-grid, .services-grid, .about-box, .cta,
-.project-nav, .project-hero, .project-content, .figma-window-wrap,
-.videos-row, .dashboard-section, .pdf-row, .project-pagination, .figma-link-wrap,
+.project-hero-row, .project-pagination-top, .project-pagination-links,
+.project-content, .figma-window-wrap,
+.videos-row, .dashboard-section, .pdf-row, .figma-link-wrap,
 .footer-top, .footer-bottom {
   max-width: 1800px;
   margin-left: auto;
@@ -409,7 +408,36 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1450px) {
-  nav { padding: 2rem 2.5rem 1.1rem; justify-content: flex-end; }
+  .hero-sub { display: none; }
+  .hero-bg { aspect-ratio: 0.85; object-fit: cover; object-position: 35% 18%; height: auto; }
+  .works { padding: 3rem 2.5rem; }
+  .works .section-heading { text-align: center; }
+  .about { padding: 3rem 2rem 3rem; }
+  .about-box { flex-direction: column; text-align: center; }
+  .about-title, .about-text { text-align: center; }
+  .services { padding: 3rem 2rem 4rem; }
+  .project-nav, .project-hero, .project-content, .project-content.no-side, .figma-window-wrap, .videos-row, .dashboard-section, .pdf-row, .project-pagination, .figma-link-wrap { padding-left: 2rem; padding-right: 2rem; }
+  .project-hero-row { flex-direction: column; align-items: flex-start; }
+  .project-pagination-top { flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+  .project-info-box { width: 100%; }
+  .project-info-value { white-space: normal; }
+  .project-content, .project-content.project-sprava-profilu, .project-content.no-side { grid-template-columns: 1fr; }
+  .videos-row, .dashboard-row, .pdf-row { grid-template-columns: 1fr; }
+  .video-box.featured { max-width: 380px; margin: 0 auto; }
+  .dashboard-card, .pdf-card { max-width: 380px; margin: 0 auto; width: 100%; }
+  .figma-window { height: 480px; }
+}
+
+@media (max-width: 1050px) {
+  html { scroll-padding-top: 90px; }
+  nav {
+    padding: 2rem 2.5rem 1.1rem;
+    justify-content: flex-end;
+    position: fixed;
+    transition: background 0.25s ease;
+  }
+  nav.nav-scrolled { background: var(--red); }
+  nav.nav-scrolled .nav-btn { background: var(--cream); color: var(--red) !important; }
   .nav-logo { display: none; }
   .nav-toggle { display: flex; }
   .nav-right {
@@ -438,27 +466,6 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
     border-radius: 8px;
   }
   body.nav-open { overflow: hidden; }
-  .hero-sub { display: none; }
-  .hero-bg { aspect-ratio: 0.85; object-fit: cover; object-position: 35% 18%; height: auto; }
-  .works { padding: 3rem 2.5rem; }
-  .works .section-heading { text-align: center; }
-  .about { padding: 3rem 2rem 3rem; }
-  .about-box { flex-direction: column; text-align: center; }
-  .about-title, .about-text { text-align: center; }
-  .services { padding: 3rem 2rem 4rem; }
-  .project-nav, .project-hero, .project-content, .project-content.no-side, .figma-window-wrap, .videos-row, .dashboard-section, .pdf-row, .project-pagination, .figma-link-wrap { padding-left: 2rem; padding-right: 2rem; }
-  .project-hero-row { flex-direction: column; align-items: flex-start; }
-  .project-pagination-top { flex-wrap: wrap; gap: 0.5rem 1.5rem; }
-  .project-info-box { width: 100%; }
-  .project-info-value { white-space: normal; }
-  .project-content, .project-content.project-sprava-profilu, .project-content.no-side { grid-template-columns: 1fr; }
-  .videos-row, .dashboard-row, .pdf-row { grid-template-columns: 1fr; }
-  .video-box.featured { max-width: 380px; margin: 0 auto; }
-  .dashboard-card, .pdf-card { max-width: 380px; margin: 0 auto; width: 100%; }
-  .figma-window { height: 480px; }
-}
-
-@media (max-width: 1050px) {
   .cta-wrap { padding: 0 2rem 3rem; }
   .cta { flex-wrap: wrap; gap: 1.5rem; }
   .cta-content { text-align: center; }
@@ -467,7 +474,6 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
   .footer-top { grid-template-columns: 1fr; gap: 2rem; }
   .footer-nav { flex-direction: column; align-items: flex-start; gap: 1.6rem; }
   .services-grid { grid-template-columns: 1fr; }
-  .hero picture { padding: 0 3rem; }
 }
 
 @media (max-width: 600px) {
@@ -475,7 +481,6 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
   .hero-bg { aspect-ratio: 0.72; object-position: 40% 15%; }
   .video-box.featured { max-width: 300px; }
   .dashboard-card, .pdf-card { max-width: 300px; }
-  .hero picture { padding: 0; }
   .works { padding: 2.5rem 1.25rem; }
   .works .section-heading { text-align: left; }
   .about { padding: 2.5rem 1.25rem 2.5rem; }
