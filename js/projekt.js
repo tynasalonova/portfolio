@@ -176,6 +176,9 @@ function wireUpInteractivity(root) {
         video.controls = true;
         video.autoplay = true;
         video.playsInline = true;
+        video.disablePictureInPicture = true;
+        video.setAttribute('controlsList', 'nodownload noplaybackrate');
+        video.setAttribute('x-webkit-airplay', 'deny');
         box.appendChild(video);
       }
     });
