@@ -173,13 +173,58 @@ function wireUpInteractivity(root) {
         const video = document.createElement('video');
         video.className = 'video-embed-fallback';
         video.src = videoUrl;
-        video.controls = true;
-        video.autoplay = true;
         video.playsInline = true;
-        video.disablePictureInPicture = true;
-        video.setAttribute('controlsList', 'nodownload noplaybackrate');
-        video.setAttribute('x-webkit-airplay', 'deny');
+        video.setAttribute('playsinline', '');
         box.appendChild(video);
+
+        const ctrl = document.createElement('div');
+        ctrl.className = 'custom-video-controls';
+        ctrl.innerHTML = `
+          <button class="cvc-play" type="button" aria-label="Přehrát / pauza">❚❚</button>
+          <input class="cvc-seek" type="range" min="0" max="100" value="0" step="0.1">
+          <span class="cvc-time">0:00 / 0:00</span>
+          <button class="cvc-fullscreen" type="button" aria-label="Celá obrazovka">⤢</button>
+        `;
+        box.appendChild(ctrl);
+
+        function fmtTime(t) {
+          if (!isFinite(t) || t < 0) return '0:00';
+          const m = Math.floor(t / 60);
+          const s = Math.floor(t % 60).toString().padStart(2, '0');
+          return `${m}:${s}`;
+        }
+
+        const playBtn = ctrl.querySelector('.cvc-play');
+        const seekBar = ctrl.querySelector('.cvc-seek');
+        const timeLabel = ctrl.querySelector('.cvc-time');
+        const fsBtn = ctrl.querySelector('.cvc-fullscreen');
+        let seeking = false;
+
+        video.addEventListener('loadedmetadata', () => {
+          timeLabel.textContent = `${fmtTime(0)} / ${fmtTime(video.duration)}`;
+        });
+        video.addEventListener('timeupdate', () => {
+          if (!seeking && video.duration) seekBar.value = String((video.currentTime / video.duration) * 100);
+          timeLabel.textContent = `${fmtTime(video.currentTime)} / ${fmtTime(video.duration)}`;
+        });
+        video.addEventListener('play', () => { playBtn.textContent = '❚❚'; });
+        video.addEventListener('pause', () => { playBtn.textContent = '▶'; });
+
+        playBtn.addEventListener('click', () => {
+          if (video.paused) video.play(); else video.pause();
+        });
+        seekBar.addEventListener('input', () => {
+          seeking = true;
+          if (video.duration) video.currentTime = (Number(seekBar.value) / 100) * video.duration;
+        });
+        seekBar.addEventListener('change', () => { seeking = false; });
+        fsBtn.addEventListener('click', () => {
+          if (box.requestFullscreen) box.requestFullscreen();
+          else if (box.webkitRequestFullscreen) box.webkitRequestFullscreen();
+          else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+        });
+
+        video.play();
       }
     });
   });
