@@ -46,7 +46,7 @@
         {
           "type": "featured_video",
           "video": "media/video-lhostejnost.mp4",
-          "poster": "media/video-lhostejnost-poster.jpg",
+          "poster": "media/video-lhostejnost-poster.png",
           "caption": "Lhostejnost"
         },
         {
@@ -54,17 +54,17 @@
           "items": [
             {
               "video": "media/video-helma.mp4",
-              "poster": "media/video-helma-poster.jpg",
+              "poster": "media/video-helma-poster.png",
               "caption": "Helma"
             },
             {
               "video": "media/video-tamponada.mp4",
-              "poster": "media/video-tamponada-poster.jpg",
+              "poster": "media/video-tamponada-poster.png",
               "caption": "Tamponáda"
             },
             {
               "video": "media/video-duseni.mp4",
-              "poster": "media/video-duseni-poster.jpg",
+              "poster": "media/video-duseni-poster.png",
               "caption": "Dušení nad 1 rok"
             }
           ]
