@@ -350,7 +350,7 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
 .video-box.featured .play-btn { width: 88px; height: 88px; }
 .video-box.featured .play-btn::after { border-width: 16px 0 16px 26px; margin-left: 5px; }
 .video-caption { position: absolute; left: 0; bottom: 0; right: 0; padding: 0.8rem 1rem; background: linear-gradient(transparent, rgba(0,0,0,0.65)); color: var(--cream); font-family: 'itc-benguiat-condensed', serif; font-size: 14px; }
-.videos-row { padding: 0 8rem 6rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; justify-items: center; }
+.videos-row { padding: 0 12rem 6rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; justify-items: center; }
 .videos-row .video-box { width: 100%; max-width: 380px; }
 
 .figma-window-wrap { padding: 1rem 12rem 3rem; display: flex; flex-direction: column; align-items: center; }
