@@ -66,14 +66,36 @@ function renderShowcaseBlock(b) {
   return '';
 }
 
+const VIDEO_ROW_FALLBACK_DESC = {
+  'Helma': 'Jak bezpečně sundat helmu zraněnému motorkáři nebo cyklistovi, aniž by hrozilo zhoršení poranění.',
+  'Tamponáda': 'Postup tamponády rány – jak zastavit silné krvácení přímým tlakem a vycpáním rány.',
+  'Dušení nad 1 rok': 'Jak zasáhnout, když se dusí dítě starší jednoho roku – rozdíl oproti postupu u kojenců.'
+};
+
 function renderFullWidthBlock(b) {
   if (b._type === 'video_row') {
-    const items = (b.items || []).map(v => `
-      <div class="video-box" data-video-url="${v.video || ''}">
-        <img class="video-poster-img" src="${sanityImageUrl(v.poster)}" alt="${v.caption || ''}">
-        <div class="play-overlay" data-play><div class="play-btn"></div></div>
-        <div class="video-caption">${v.caption || ''}</div>
-      </div>`).join('');
+    const items = (b.items || []).map(v => {
+      const desc = v.description || VIDEO_ROW_FALLBACK_DESC[v.caption] || '';
+      const photos = (v.photos || []).map(p => `
+          <div class="photo-slot"><img src="${sanityImageUrl(p)}" alt="${v.caption || ''}"></div>`).join('')
+        || `
+          <div class="photo-slot"><span>Dosah</span></div>
+          <div class="photo-slot"><span>Zhlédnutí</span></div>`;
+      return `
+      <div class="video-feature">
+        <div class="video-feature-media">
+          <div class="video-box" data-video-url="${v.video || ''}">
+            <img class="video-poster-img" src="${sanityImageUrl(v.poster)}" alt="${v.caption || ''}">
+            <div class="play-overlay" data-play><div class="play-btn"></div></div>
+          </div>
+        </div>
+        <div class="video-feature-content">
+          <h3 class="video-feature-title">${v.caption || ''}</h3>
+          ${desc ? `<p class="video-feature-desc">${desc}</p>` : ''}
+          <div class="video-feature-photos">${photos}</div>
+        </div>
+      </div>`;
+    }).join('');
     return `<section class="videos-row">${items}</section>`;
   }
 

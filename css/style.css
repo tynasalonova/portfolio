@@ -350,8 +350,20 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
 .video-box.featured .play-btn { width: 88px; height: 88px; }
 .video-box.featured .play-btn::after { border-width: 16px 0 16px 26px; margin-left: 5px; }
 .video-caption { position: absolute; left: 0; bottom: 0; right: 0; padding: 0.8rem 1rem; background: linear-gradient(transparent, rgba(0,0,0,0.65)); color: var(--cream); font-family: 'itc-benguiat-condensed', serif; font-size: 14px; }
-.videos-row { padding: 0 12rem 6rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; justify-items: center; }
-.videos-row .video-box { width: 100%; max-width: 380px; }
+.videos-row { padding: 0 12rem 6rem; display: flex; flex-direction: column; gap: 4rem; }
+.video-feature { display: grid; grid-template-columns: 300px 1fr; gap: 3rem; align-items: start; }
+.video-feature-media .video-box { max-width: 300px; margin: 0; }
+.video-feature-title { font-family: 'norman-variable', serif; font-size: 1.6rem; font-weight: 400; color: var(--cream); margin-bottom: 0.8rem; }
+.video-feature-desc { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7; color: rgba(235, 229, 211, 0.73); margin-bottom: 1.5rem; }
+.video-feature-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.photo-slot { position: relative; aspect-ratio: 3/4; border-radius: 12px; overflow: hidden; background: var(--green); border: 1px dashed rgba(235, 229, 211, 0.35); display: flex; align-items: center; justify-content: center; }
+.photo-slot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-slot span { font-family: 'itc-benguiat-condensed', serif; font-size: 13px; color: rgba(235, 229, 211, 0.5); }
+
+@media (max-width: 900px) {
+  .video-feature { grid-template-columns: 1fr; }
+  .video-feature-media .video-box { max-width: 100%; }
+}
 
 .figma-window-wrap { padding: 1rem 12rem 3rem; display: flex; flex-direction: column; align-items: center; }
 .figma-window-hint { font-family: 'itc-benguiat-condensed', serif; font-size: 14px; color: var(--cream); opacity: 0.8; margin-bottom: 0.8rem; }
