@@ -77,7 +77,7 @@ function renderFullWidthBlock(b) {
     const items = (b.items || []).map(v => {
       const desc = v.description || VIDEO_ROW_FALLBACK_DESC[v.caption] || '';
       const photos = (v.photos || []).map(p => `
-          <div class="photo-slot"><img src="${sanityImageUrl(p)}" alt="${v.caption || ''}"></div>`).join('')
+          <div class="photo-slot" data-lightbox="${sanityImageUrl(p)}"><img src="${sanityImageUrl(p)}" alt="${v.caption || ''}"></div>`).join('')
         || `
           <div class="photo-slot"><span>Dosah</span></div>
           <div class="photo-slot"><span>Zhlédnutí</span></div>`;
