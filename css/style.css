@@ -396,6 +396,12 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
 .photo-slot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .photo-slot span { font-family: 'itc-benguiat-condensed', serif; font-size: 13px; color: rgba(235, 229, 211, 0.5); }
 
+.video-photo-pairs-row { padding: 0 12rem 6rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 4rem; }
+.video-photo-pair { display: flex; gap: 1rem; }
+.video-photo-pair .video-box { width: 220px; max-width: 220px; }
+.video-photo-pair-image { position: relative; width: 220px; aspect-ratio: 9/16; border-radius: 16px; overflow: hidden; background: var(--green); cursor: zoom-in; flex-shrink: 0; }
+.video-photo-pair-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
 @media (max-width: 900px) {
   .video-feature { grid-template-columns: 1fr; }
   .video-feature-media .video-box { max-width: 100%; }
@@ -478,6 +484,7 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
     position: absolute;
   }
   .project-nav-inner, .project-hero-row, .project-pagination-top, .project-content, .project-content.no-side, .figma-window-wrap, .videos-row, .dashboard-section, .pdf-row, .project-pagination-links, .figma-link-wrap { padding-left: 2rem; padding-right: 2rem; }
+  .video-photo-pairs-row { padding-left: 2rem; padding-right: 2rem; gap: 2rem; }
   .project-hero-row { grid-template-columns: 1fr; align-items: start; }
   .project-info-box { justify-self: stretch; width: 100%; max-width: none; }
   .project-pagination-top { flex-wrap: wrap; gap: 0.5rem 1.5rem; }
@@ -538,6 +545,9 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
   .about-title, .about-text { text-align: left; }
   .about-photo { width: 245px; }
   .project-nav-inner, .project-hero-row, .project-pagination-top, .project-content, .project-content.no-side, .figma-window-wrap, .videos-row, .dashboard-section, .pdf-row, .project-pagination-links, .figma-link-wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .video-photo-pairs-row { padding-left: 1.25rem; padding-right: 1.25rem; gap: 2rem; }
+  .video-photo-pair { flex-direction: column; }
+  .video-photo-pair .video-box, .video-photo-pair-image { width: 100%; max-width: 260px; margin: 0 auto; }
   .project-info-box { grid-template-columns: 1fr; }
   .figma-window { height: 340px; }
 }

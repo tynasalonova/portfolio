@@ -135,6 +135,20 @@ function renderFullWidthBlock(b) {
     return `<section class="pdf-row">${items}</section>`;
   }
 
+  if (b._type === 'video_photo_pairs_row') {
+    const pairs = (b.items || []).map(v => `
+      <div class="video-photo-pair">
+        <div class="video-box" data-video-url="${v.video || ''}">
+          <img class="video-poster-img" src="${sanityImageUrl(v.poster)}" alt="">
+          <div class="play-overlay" data-play><div class="play-btn"></div></div>
+        </div>
+        <div class="video-photo-pair-image" data-lightbox="${sanityImageUrl(v.photo)}">
+          <img src="${sanityImageUrl(v.photo)}" alt="">
+        </div>
+      </div>`).join('');
+    return `<section class="video-photo-pairs-row">${pairs}</section>`;
+  }
+
   if (b._type === 'link_button') {
     return `
       <div class="figma-link-wrap">
