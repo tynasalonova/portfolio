@@ -66,16 +66,10 @@ function renderShowcaseBlock(b) {
   return '';
 }
 
-const VIDEO_ROW_FALLBACK_DESC = {
-  'Helma': 'Jak bezpečně sundat helmu zraněnému motorkáři nebo cyklistovi, aniž by hrozilo zhoršení poranění.',
-  'Tamponáda': 'Postup tamponády rány – jak zastavit silné krvácení přímým tlakem a vycpáním rány.',
-  'Dušení nad 1 rok': 'Jak zasáhnout, když se dusí dítě starší jednoho roku – rozdíl oproti postupu u kojenců.'
-};
-
 function renderFullWidthBlock(b) {
   if (b._type === 'video_row') {
     const items = (b.items || []).map(v => {
-      const desc = v.description || VIDEO_ROW_FALLBACK_DESC[v.caption] || '';
+      const desc = v.description || '';
       const firstPhoto = (v.photos || [])[0];
       const photoHTML = firstPhoto
         ? `<div class="video-feature-photo" data-lightbox="${sanityImageUrl(firstPhoto)}"><img src="${sanityImageUrl(firstPhoto)}" alt="${v.caption || ''}"></div>`
