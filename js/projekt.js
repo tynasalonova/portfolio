@@ -76,11 +76,10 @@ function renderFullWidthBlock(b) {
   if (b._type === 'video_row') {
     const items = (b.items || []).map(v => {
       const desc = v.description || VIDEO_ROW_FALLBACK_DESC[v.caption] || '';
-      const photos = (v.photos || []).map(p => `
-          <div class="photo-slot" data-lightbox="${sanityImageUrl(p)}"><img src="${sanityImageUrl(p)}" alt="${v.caption || ''}"></div>`).join('')
-        || `
-          <div class="photo-slot"><span>Dosah</span></div>
-          <div class="photo-slot"><span>Zhlédnutí</span></div>`;
+      const firstPhoto = (v.photos || [])[0];
+      const photoHTML = firstPhoto
+        ? `<div class="video-feature-photo" data-lightbox="${sanityImageUrl(firstPhoto)}"><img src="${sanityImageUrl(firstPhoto)}" alt="${v.caption || ''}"></div>`
+        : `<div class="video-feature-photo video-feature-photo-empty"><span>Fotka</span></div>`;
       return `
       <div class="video-feature">
         <div class="video-feature-media">
@@ -89,10 +88,10 @@ function renderFullWidthBlock(b) {
             <div class="play-overlay" data-play><div class="play-btn"></div></div>
           </div>
         </div>
+        ${photoHTML}
         <div class="video-feature-content">
           <h3 class="video-feature-title">${v.caption || ''}</h3>
           ${desc ? `<p class="video-feature-desc">${desc}</p>` : ''}
-          <div class="video-feature-photos">${photos}</div>
         </div>
       </div>`;
     }).join('');
