@@ -547,7 +547,8 @@ footer { background: var(--red); border-radius: 22px 22px 0 0; padding: 3.5rem 5
   .project-nav-inner, .project-hero-row, .project-pagination-top, .project-content, .project-content.no-side, .figma-window-wrap, .videos-row, .dashboard-section, .pdf-row, .project-pagination-links, .figma-link-wrap { padding-left: 1.25rem; padding-right: 1.25rem; }
   .video-photo-pairs-row { padding-left: 1.25rem; padding-right: 1.25rem; gap: 2rem; }
   .video-photo-pair { flex-direction: column; }
-  .video-photo-pair .video-box, .video-photo-pair-image { width: 100%; max-width: 260px; margin: 0 auto; }
+  .video-photo-pair { width: 260px; margin: 0 auto; }
+  .video-photo-pair .video-box, .video-photo-pair-image { width: 260px; margin: 0 auto; }
   .project-info-box { grid-template-columns: 1fr; }
   .figma-window { height: 340px; }
 }
